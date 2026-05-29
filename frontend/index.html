@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TODO LIST</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./api.js" defer></script>
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -42,8 +43,8 @@
           </div>
           <select name="" id="" class="header__select">
             <option value="all">ALL</option>
-            <option value="complete">complete</option>
-            <option value="incomplete">incomplete</option>
+            <option value="complete">DONE</option>
+            <option value="incomplete">ACTIVE</option>
           </select>
           <button class="header__button"></button>
         </div>
@@ -60,7 +61,14 @@
             <li class="main__li">
               <div class="main__left">
                 <button class="main__btn"></button>
-                <p class="main__title">NOTE #1</p>
+                <div class="main__column">
+                  <p class="main__title">NOTE #1</p>
+                  <p class="main__description"></p>
+                  <div class="main__meta">
+                    <p class="main__category"></p>
+                    <p class="main__date"></p>
+                  </div>
+                </div>
               </div>
               <div class="main__right">
                 <button class="main__edit">
@@ -122,11 +130,27 @@
       <div class="modal__container">
         <div class="modal__top">
           <h1 class="modal__title">NEW NOTE</h1>
-          <input
-            type="text"
-            class="modal__input"
-            placeholder="Input your note..."
-          />
+          <div class="modal__list">
+            <div class="input__container">
+              <p>Title:</p>
+              <input
+                type="text"
+                class="modal__input modal__input-title"
+                placeholder="Input your title..."
+              />
+            </div>
+            <div class="input__container">
+              <p>Description:</p>
+              <textarea
+                class="modal__input modal__input-description"
+                placeholder="Input your description..."
+              ></textarea>
+            </div>
+            <div class="input__container">
+              <p>Category:</p>
+              <select class="modal__select"></select>
+            </div>
+          </div>
         </div>
         <div class="modal__btns">
           <button class="modal__cancel">CANCEL</button>
